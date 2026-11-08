@@ -14,35 +14,40 @@ export type Scene3DProps = {
   reduced: boolean;
 };
 
+export const WISH = {
+  recipientName: "Priya",
+  senderName: "Kanchan",
+};
+
 export const SCENES = [
   {
     id: "welcome",
     label: "Welcome",
     announcement:
-      "Scene one. A Festival of Lights. Something magical is about to begin. A celebration of light, happiness, and beautiful new beginnings.",
+      "Scene one. A little light for you. Some people make the world brighter just by being in it, and you are one of them. This little celebration is just for you.",
   },
   {
     id: "light",
     label: "Light",
     announcement:
-      "Scene two. Spread the light. Every light begins with a spark. May every little flame bring hope, warmth, and happiness into your life.",
+      "Scene two. A prayer, lit for you. As this diya is lit, may your heart find peace, your home find warmth, and your face keep its brightest smile.",
   },
   {
     id: "gift",
     label: "Magic",
     announcement:
-      "Scene three. A little surprise. Happiness is meant to be shared. Every celebration becomes more special when shared with the people who matter.",
+      "Scene three. A little something. If every star could be wrapped and every happy moment tied with a ribbon, they would all be on their way to you today.",
   },
   {
     id: "celebration",
     label: "Celebration",
     announcement:
-      "Scene four. Let the magic glow. Let your world shine brighter. May your days sparkle with joy, your home glow with peace, and your dreams shine with possibilities.",
+      "Scene four. Let the magic glow. May your days shine brighter, your heart stay light, and every quiet dream find its perfect beginning.",
   },
   {
     id: "greeting",
     label: "Greeting",
     announcement:
-      "Scene five. Happy Diwali. May this Festival of Lights bring happiness, prosperity, peace, and endless new beginnings. Wishing you and your family a beautiful Diwali.",
+      "Scene five. Happy Diwali. May this Festival of Lights bring you endless happiness, good health, peace, and the courage to chase everything you have ever wished for. You deserve all the light in the world.",
   },
 ] as const;

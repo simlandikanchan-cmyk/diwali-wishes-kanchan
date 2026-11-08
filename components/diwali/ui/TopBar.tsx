@@ -32,7 +32,7 @@ export default function TopBar({
             DIWALI
           </p>
           <p className="mt-1.5 font-sans text-[0.5rem] uppercase tracking-[0.36em] text-white/40">
-            Festival of Lights
+            A Wish for You
           </p>
         </div>
       </div>

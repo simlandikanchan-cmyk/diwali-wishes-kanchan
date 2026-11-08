@@ -25,9 +25,9 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "Diwali — A Festival of Lights",
+  title: "A Diwali Wish — Made Just for You",
   description:
-    "An immersive, interactive Diwali greeting. Light the diya, unwrap the magic and celebrate the Festival of Lights.",
+    "A little celebration of light, made with love for someone very special. Light the diya, unwrap the magic, and celebrate the Festival of Lights.",
   applicationName: "Diwali",
   keywords: ["Diwali", "Festival of Lights", "greeting", "rangoli", "diya"],
   authors: [{ name: "Kanchan Simlandi" }],

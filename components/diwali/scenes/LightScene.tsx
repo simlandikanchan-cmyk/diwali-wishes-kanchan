@@ -21,20 +21,20 @@ export default function LightScene({ lit, onLight, busy }: LightSceneProps) {
       initial="hidden"
       animate="show"
       exit="exit"
-      className="flex min-h-full w-full flex-col justify-center px-5 py-6 text-center sm:px-8 sm:py-8 lg:px-10 lg:py-10 lg:text-left xl:px-14"
+      className="scene-section"
     >
       <div className="mx-auto flex w-full max-w-[34rem] flex-col items-center gap-4 sm:gap-5 lg:mx-0 lg:items-start lg:gap-6">
         <motion.p variants={item} className="eyebrow">
-          Spread the Light
+          A Prayer, Lit for You
         </motion.p>
 
         <motion.h2
           variants={item}
           className="display-title text-[clamp(1.65rem,6.9vw,4.2rem)] text-ivory"
         >
-          Every Light
+          May Your Light
           <span className="mt-1 block bg-gradient-to-b from-gold-50 via-gold-200 to-gold-500 bg-clip-text font-serif italic text-transparent">
-            Begins With a Spark.
+            Never Fade.
           </span>
         </motion.h2>
 
@@ -43,8 +43,8 @@ export default function LightScene({ lit, onLight, busy }: LightSceneProps) {
         </motion.div>
 
         <motion.p variants={item} className="scene-copy max-w-[32rem]">
-          May every little flame bring hope, warmth, and happiness into your
-          life.
+          As I light this diya, I&apos;m wishing you peace in your heart, warmth
+          in your home, and a smile that never leaves your face.
         </motion.p>
 
         <motion.div variants={item} className="pt-1 sm:pt-2">

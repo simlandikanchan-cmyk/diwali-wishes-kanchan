@@ -55,7 +55,8 @@ function Stage({ active, children }: StageProps) {
     if (!group) return;
 
     const target = active ? 1 : 0;
-    value.current += (target - value.current) * Math.min(1, delta * 4.2);
+    const k = 1 - Math.exp(-delta * 4.2);
+    value.current += (target - value.current) * k;
     const current = value.current;
     const scale = Math.max(0.001, current);
 
@@ -78,7 +79,7 @@ function SceneLights({ scene }: { scene: number }) {
   const rimRef = useRef<THREE.PointLight>(null);
 
   useFrame((_, delta) => {
-    const d = Math.min(delta, 0.05) * 2.4;
+    const d = 1 - Math.exp(-delta * 2.6);
 
     if (keyRef.current) {
       const target = scene === 2 ? 1.32 : scene >= 3 ? 1.18 : 1.08;
@@ -136,11 +137,11 @@ function ParallaxGroup({ pointer, reduced, children }: ParallaxGroupProps) {
   useFrame((_, delta) => {
     const group = groupRef.current;
     if (!group) return;
-    const d = Math.min(delta, 0.05);
+    const k = 1 - Math.exp(-delta * 2.4);
     const targetX = reduced ? 0 : pointer.current.x * 0.14;
     const targetY = reduced ? 0 : -pointer.current.y * 0.09;
-    group.rotation.y += (targetX - group.rotation.y) * Math.min(1, d * 2.4);
-    group.rotation.x += (targetY - group.rotation.x) * Math.min(1, d * 2.4);
+    group.rotation.y += (targetX - group.rotation.y) * k;
+    group.rotation.x += (targetY - group.rotation.x) * k;
   });
 
   return <group ref={groupRef}>{children}</group>;
@@ -157,7 +158,8 @@ function CameraRig({ scene, pointer, reduced }: CameraRigProps) {
   const focus = useRef(new THREE.Vector3(0, 0.4, 0));
 
   useFrame((_, delta) => {
-    const d = Math.min(delta, 0.05);
+    const kx = 1 - Math.exp(-delta * 2.6);
+    const kz = 1 - Math.exp(-delta * 1.8);
     const px = reduced ? 0 : pointer.current.x;
     const py = reduced ? 0 : pointer.current.y;
     const focusY =
@@ -166,9 +168,9 @@ function CameraRig({ scene, pointer, reduced }: CameraRigProps) {
     const targetX = px * 0.5;
     const targetY = 0.6 - py * 0.3;
 
-    camera.position.x += (targetX - camera.position.x) * Math.min(1, d * 2.4);
-    camera.position.y += (targetY - camera.position.y) * Math.min(1, d * 2.4);
-    camera.position.z += (targetZ - camera.position.z) * Math.min(1, d * 1.6);
+    camera.position.x += (targetX - camera.position.x) * kx;
+    camera.position.y += (targetY - camera.position.y) * kx;
+    camera.position.z += (targetZ - camera.position.z) * kz;
 
     focus.current.set(0, focusY, 0);
     camera.lookAt(focus.current);
@@ -352,7 +354,12 @@ function SceneContents({
 
 export default function DiwaliExperience() {
   const reduce = useReducedMotion() ?? false;
-  const { enabled: soundOn, toggle: toggleSound, play } = useDiwaliAudio();
+  const {
+    enabled: soundOn,
+    toggle: toggleSound,
+    start: startSound,
+    play,
+  } = useDiwaliAudio();
   const pointer = useRef<PointerState>({ x: 0, y: 0 });
   const busyRef = useRef(false);
 
@@ -445,9 +452,9 @@ export default function DiwaliExperience() {
 
   const handleBegin = useCallback(() => {
     if (busyRef.current) return;
-    play("chime");
+    startSound();
     goTo(1);
-  }, [goTo, play]);
+  }, [goTo, startSound]);
 
   const handleLight = useCallback(() => {
     if (busyRef.current || lit) return;

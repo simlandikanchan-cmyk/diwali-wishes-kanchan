@@ -161,6 +161,7 @@ export default function Rangoli({
 
   useFrame((_, delta) => {
     const d = Math.min(delta, 0.05);
+    const k = 1 - Math.exp(-delta * 2.4);
 
     if (spinnerRef.current && !reduced) {
       spinnerRef.current.rotation.y += d * 0.055;
@@ -169,7 +170,7 @@ export default function Rangoli({
     const material = materialRef.current;
     if (material) {
       const target = active ? opacity : 0;
-      material.opacity += (target - material.opacity) * Math.min(1, d * 2.4);
+      material.opacity += (target - material.opacity) * k;
     }
   });
 

@@ -30,8 +30,8 @@ export default function ShimmerButton({
       aria-label={ariaLabel}
       whileHover={disabled || reduce ? undefined : { scale: 1.035 }}
       whileTap={disabled || reduce ? undefined : { scale: 0.97 }}
-      transition={{ type: "spring", stiffness: 400, damping: 22 }}
-      className={`group relative inline-flex min-h-[3.1rem] items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[#fbe7ab]/70 px-6 py-3.5 font-sans text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#241503] transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-100 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight-900 disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-[3.5rem] sm:px-9 sm:py-4 sm:text-[0.7rem] sm:tracking-[0.24em] ${className}`}
+      transition={{ type: "spring", stiffness: 340, damping: 24, mass: 0.9 }}
+      className={`group relative inline-flex min-h-[3.1rem] max-w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[#fbe7ab]/70 px-5 py-3.5 text-center font-sans text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-[#241503] transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-100 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight-900 disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-[3.5rem] sm:px-9 sm:py-4 sm:text-[0.7rem] sm:tracking-[0.24em] ${className}`}
       style={{
         background:
           "linear-gradient(120deg, #fff6cf 0%, #f4d98d 20%, #d4a437 46%, #f8e3a1 64%, #bf8b14 100%)",

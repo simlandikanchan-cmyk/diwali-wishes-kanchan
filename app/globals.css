@@ -50,7 +50,13 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 6px 28px rgba(212, 164, 55, 0.28));
+    filter: drop-shadow(0 3px 16px rgba(212, 164, 55, 0.24));
+  }
+
+  @media (min-width: 640px) {
+    .text-gold-gradient {
+      filter: drop-shadow(0 6px 28px rgba(212, 164, 55, 0.28));
+    }
   }
 
   .text-gold-soft {
@@ -73,9 +79,10 @@ body {
   .display-title {
     font-family: var(--font-playfair), Georgia, serif;
     font-weight: 600;
-    line-height: 1.02;
+    line-height: 1.06;
     letter-spacing: -0.012em;
     text-wrap: balance;
+    overflow-wrap: break-word;
     text-shadow: 0 2px 42px rgba(5, 3, 13, 0.75);
   }
 
@@ -85,7 +92,7 @@ body {
     font-weight: 300;
     line-height: 1.72;
     letter-spacing: 0.005em;
-    color: rgba(247, 236, 216, 0.76);
+    color: rgba(247, 236, 216, 0.8);
     text-wrap: pretty;
   }
 
@@ -130,6 +137,18 @@ body {
   .scene-section {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .scene-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .scene-copy {
+    font-size: 0.94rem;
+    line-height: 1.68;
   }
 }
 

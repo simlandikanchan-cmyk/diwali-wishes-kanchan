@@ -37,8 +37,8 @@ export default function GiftBox({
 
   useFrame((state, delta) => {
     const d = Math.min(delta, 0.05);
-    openAmount.current +=
-      ((open ? 1 : 0) - openAmount.current) * Math.min(1, d * 3);
+    const k = 1 - Math.exp(-delta * 3);
+    openAmount.current += ((open ? 1 : 0) - openAmount.current) * k;
     const amount = openAmount.current;
     const t = state.clock.elapsedTime;
 

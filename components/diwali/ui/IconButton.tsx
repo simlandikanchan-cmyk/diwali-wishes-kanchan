@@ -32,7 +32,7 @@ export default function IconButton({
       disabled={disabled}
       whileHover={disabled || reduce ? undefined : { scale: 1.06 }}
       whileTap={disabled || reduce ? undefined : { scale: 0.94 }}
-      transition={{ type: "spring", stiffness: 420, damping: 22 }}
+      transition={{ type: "spring", stiffness: 360, damping: 24, mass: 0.9 }}
       className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight-900 disabled:cursor-not-allowed disabled:opacity-50 sm:h-11 sm:w-11 ${
         active
           ? "border-gold-300/60 bg-gold-400/20 text-gold-100 shadow-glow-gold"

@@ -62,9 +62,9 @@ export default function Diya({
   );
 
   useFrame((state, delta) => {
-    const d = Math.min(delta, 0.05);
     const target = lit ? 1 : 0;
-    litAmount.current += (target - litAmount.current) * Math.min(1, d * 3.4);
+    const k = 1 - Math.exp(-delta * 3.4);
+    litAmount.current += (target - litAmount.current) * k;
     const amount = litAmount.current;
     const t = state.clock.elapsedTime;
 
